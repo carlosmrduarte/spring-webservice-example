@@ -5,9 +5,6 @@ import javax.persistence.Converter;
 
 import io.xgeekshq.demo.model.Gender;
 
-/**
- * GenderConverter
- */
 @Converter(autoApply = true)
 public class GenderConverter implements AttributeConverter<Gender, String> {
 
