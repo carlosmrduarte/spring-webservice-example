@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
+
     @Autowired
     private ObjectMapper jsonMapper;
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 
     @Around("within(io.xgeekshq.demo.controller.*)")
     public Object logAroundController(ProceedingJoinPoint jp) throws Throwable {

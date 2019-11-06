@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,34 +24,19 @@ import io.xgeekshq.demo.dto.UserDto;
 import io.xgeekshq.demo.service.UserService;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api") // prepend endpoints with /api/
 public class UserController {
 
+    @Autowired // injected by Spring
     private UserService service;
-
-    // UserService is injected by Spring
-    public UserController(UserService service) {
-        this.service = service;
-    }
-
-    @GetMapping("/user/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
-        Optional<UserDto> user = this.service.findById(id);
-        return user.isPresent() ? ResponseEntity.ok(user.get()) : ResponseEntity.notFound().build();
-    }
 
     @GetMapping("/users")
     public List<UserDto> getUsers() {
         return this.service.findAll();
     }
 
-    @GetMapping("/users-by-email-keyword")
-    public List<UserDto> getUsersByEmailKeyword(@RequestParam String keyword) {
-        return this.service.findUsersByEmailKeyword(keyword);
-    }
-
     @DeleteMapping("/user/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NO_CONTENT) // change default 200 (OK) Code to 204 (No Content)
     public void deleteUser(@PathVariable Long id) {
         this.service.deleteUser(id);
     }
@@ -63,6 +49,17 @@ public class UserController {
                 .toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+        Optional<UserDto> user = this.service.findById(id);
+        return user.isPresent() ? ResponseEntity.ok(user.get()) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/users-by-email-keyword")
+    public List<UserDto> getUsersByEmailKeyword(@RequestParam String keyword) {
+        return this.service.findUsersByEmailKeyword(keyword);
     }
 
 }

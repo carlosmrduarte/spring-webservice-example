@@ -25,13 +25,8 @@ public class UserService {
     }
 
     @Transactional(readOnly = true) // override default annotation
-    public Optional<UserDto> findById(Long id) {
-        return this.repository.findById(id).map(mapper::toDto);
-    }
-
-    @Transactional(readOnly = true) // override default annotation
     public List<UserDto> findAll() {
-        return this.mapper.toDto(repository.findAll());
+        return this.mapper.toDto(this.repository.findAll());
     }
 
     public Long saveUser(UserDto user) {
@@ -43,8 +38,13 @@ public class UserService {
         this.repository.deleteById(id);
     }
 
+    @Transactional(readOnly = true) // override default annotation
+    public Optional<UserDto> findById(Long id) {
+        return this.repository.findById(id).map(mapper::toDto);
+    }
+
     public List<UserDto> findUsersByEmailKeyword(String keyword) {
-        return this.mapper.toDto(this.repository.findByEmailContaining(keyword));
+        return this.mapper.toDto(this.repository.findByEmailWithKeyword(keyword));
     }
 
 }
