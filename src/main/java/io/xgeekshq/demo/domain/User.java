@@ -1,15 +1,13 @@
 package io.xgeekshq.demo.domain;
 
+import io.xgeekshq.demo.model.Gender;
 import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-import io.xgeekshq.demo.model.Gender;
 
 @Entity
 public class User {
@@ -18,21 +16,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    private String firstName;
+    @NotNull private String firstName;
 
-    @NotNull
-    private String lastName;
+    @NotNull private String lastName;
 
-    @NotNull
-    @Email
-    private String email;
+    @NotNull @Email private String email;
 
-    @NotNull
-    private Gender gender;
+    @NotNull private Gender gender;
 
-    @NotNull
-    private LocalDate birthDate;
+    @NotNull private LocalDate birthDate;
 
     public String getEmail() {
         return email;
@@ -81,5 +73,4 @@ public class User {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-
 }

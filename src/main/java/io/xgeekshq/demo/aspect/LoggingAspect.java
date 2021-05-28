@@ -2,7 +2,6 @@ package io.xgeekshq.demo.aspect;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,8 +16,7 @@ public class LoggingAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Autowired
-    private ObjectMapper jsonMapper;
+    @Autowired private ObjectMapper jsonMapper;
 
     @Around("within(io.xgeekshq.demo.controller.*)")
     public Object logAroundController(ProceedingJoinPoint jp) throws Throwable {
@@ -31,11 +29,9 @@ public class LoggingAspect {
     private String toJson(Object object) {
         try {
             return this.jsonMapper.writeValueAsString(object);
-        }
-        catch (JsonProcessingException e) {
+        } catch (JsonProcessingException e) {
             LOGGER.error("Error serializing object to json", e);
             return "";
         }
     }
-
 }

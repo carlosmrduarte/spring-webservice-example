@@ -1,9 +1,8 @@
 package io.xgeekshq.demo.domain;
 
+import io.xgeekshq.demo.model.Gender;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
-
-import io.xgeekshq.demo.model.Gender;
 
 @Converter(autoApply = true)
 public class GenderConverter implements AttributeConverter<Gender, String> {
@@ -17,5 +16,4 @@ public class GenderConverter implements AttributeConverter<Gender, String> {
     public Gender convertToEntityAttribute(String value) {
         return Gender.fromValue(value);
     }
-
 }

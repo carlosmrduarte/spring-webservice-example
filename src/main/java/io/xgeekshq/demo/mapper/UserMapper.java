@@ -1,11 +1,9 @@
 package io.xgeekshq.demo.mapper;
 
-import java.util.List;
-
-import org.mapstruct.Mapper;
-
 import io.xgeekshq.demo.domain.User;
 import io.xgeekshq.demo.dto.UserDto;
+import java.util.List;
+import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -17,5 +15,4 @@ public interface UserMapper {
     User toEntity(UserDto dto);
 
     List<User> toEntity(List<UserDto> dto);
-
 }

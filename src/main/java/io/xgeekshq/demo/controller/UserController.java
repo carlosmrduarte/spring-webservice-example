@@ -1,11 +1,11 @@
 package io.xgeekshq.demo.controller;
 
+import io.xgeekshq.demo.dto.UserDto;
+import io.xgeekshq.demo.service.UserService;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import io.xgeekshq.demo.dto.UserDto;
-import io.xgeekshq.demo.service.UserService;
 
 @RestController
 @RequestMapping(path = "/api") // prepend endpoints with /api/
@@ -37,7 +34,7 @@ public class UserController {
 
     @DeleteMapping("/user/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT) // change default 200 (OK) Code to 204 (No
-                                           // Content)
+    // Content)
     public void deleteUser(@PathVariable Long id) {
         this.service.deleteUser(id);
     }
@@ -46,8 +43,11 @@ public class UserController {
     public ResponseEntity<Void> createUser(@RequestBody @Valid UserDto user) {
         Long newUserId = this.service.saveUser(user);
 
-        URI location = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{userId}").buildAndExpand(newUserId)
-                .toUri();
+        URI location =
+                ServletUriComponentsBuilder.fromCurrentRequestUri()
+                        .path("/{userId}")
+                        .buildAndExpand(newUserId)
+                        .toUri();
 
         return ResponseEntity.created(location).build();
     }
@@ -62,5 +62,4 @@ public class UserController {
     public List<UserDto> getUsersByEmailKeyword(@RequestParam String keyword) {
         return this.service.findUsersByEmailKeyword(keyword);
     }
-
 }

@@ -1,16 +1,13 @@
 package io.xgeekshq.demo.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import io.xgeekshq.demo.model.Gender;
 import java.time.LocalDate;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
-import io.xgeekshq.demo.model.Gender;
 
 public class UserDto {
 
@@ -25,15 +22,11 @@ public class UserDto {
     @Size(min = 2)
     private String lastName;
 
-    @NotBlank
-    @Email
-    private String email;
+    @NotBlank @Email private String email;
 
-    @NotNull
-    private Gender gender;
+    @NotNull private Gender gender;
 
-    @NotNull
-    private LocalDate birthDate;
+    @NotNull private LocalDate birthDate;
 
     public String getEmail() {
         return email;
@@ -82,5 +75,4 @@ public class UserDto {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-
 }
