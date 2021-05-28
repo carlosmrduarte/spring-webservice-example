@@ -31,7 +31,8 @@ public class LoggingAspect {
     private String toJson(Object object) {
         try {
             return this.jsonMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
+        }
+        catch (JsonProcessingException e) {
             LOGGER.error("Error serializing object to json", e);
             return "";
         }

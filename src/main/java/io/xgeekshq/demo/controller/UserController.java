@@ -36,7 +36,8 @@ public class UserController {
     }
 
     @DeleteMapping("/user/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT) // change default 200 (OK) Code to 204 (No Content)
+    @ResponseStatus(HttpStatus.NO_CONTENT) // change default 200 (OK) Code to 204 (No
+                                           // Content)
     public void deleteUser(@PathVariable Long id) {
         this.service.deleteUser(id);
     }

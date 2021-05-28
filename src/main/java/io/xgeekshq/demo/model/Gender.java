@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gender
  */
 public enum Gender {
+
     FEMALE("F"), MALE("M");
 
     private String value;
@@ -24,7 +25,8 @@ public enum Gender {
     public static Gender fromValue(String value) {
         if ("F".equalsIgnoreCase(value)) {
             return Gender.FEMALE;
-        } else if ("M".equalsIgnoreCase(value)) {
+        }
+        else if ("M".equalsIgnoreCase(value)) {
             return Gender.MALE;
         }
 

@@ -16,6 +16,7 @@ import io.xgeekshq.demo.repository.UserRepository;
 public class UserService {
 
     private UserRepository repository;
+
     private UserMapper mapper;
 
     // Constructor arguments are injected by Spring
