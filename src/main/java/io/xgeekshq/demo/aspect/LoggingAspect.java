@@ -16,7 +16,8 @@ public class LoggingAspect {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Autowired private ObjectMapper jsonMapper;
+    @Autowired
+    private ObjectMapper jsonMapper;
 
     @Around("within(io.xgeekshq.demo.controller.*)")
     public Object logAroundController(ProceedingJoinPoint jp) throws Throwable {

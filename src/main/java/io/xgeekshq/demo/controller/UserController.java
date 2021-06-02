@@ -43,11 +43,11 @@ public class UserController {
     public ResponseEntity<Void> createUser(@RequestBody @Valid UserDto user) {
         Long newUserId = this.service.saveUser(user);
 
-        URI location =
-                ServletUriComponentsBuilder.fromCurrentRequestUri()
-                        .path("/{userId}")
-                        .buildAndExpand(newUserId)
-                        .toUri();
+        URI location = ServletUriComponentsBuilder
+            .fromCurrentRequestUri()
+            .path("/{userId}")
+            .buildAndExpand(newUserId)
+            .toUri();
 
         return ResponseEntity.created(location).build();
     }

@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 // by extending JpaRepository, this is recognized automatically as a bean
 // If no interface is extended, I can use @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
     // method query
     List<User> findByEmailContaining(String keyword);
 

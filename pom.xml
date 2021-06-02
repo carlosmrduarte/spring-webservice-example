@@ -102,6 +102,29 @@
         <artifactId>git-commit-id-plugin</artifactId>
       </plugin>
 
+      <!-- java formatter  -->
+      <plugin>
+        <groupId>com.hubspot.maven.plugins</groupId>
+        <artifactId>prettier-maven-plugin</artifactId>
+        <version>0.13</version>
+        <configuration>
+          <prettierJavaVersion>1.0.2</prettierJavaVersion>
+          <printWidth>120</printWidth>
+          <tabWidth>4</tabWidth>
+          <ignoreConfigFile>true</ignoreConfigFile>
+          <ignoreEditorConfig>true</ignoreEditorConfig>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>write</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- git hooks -->
       <plugin>
         <groupId>io.github.phillipuniverse</groupId>
         <artifactId>githook-maven-plugin</artifactId>
@@ -114,31 +137,10 @@
             <configuration>
               <hooks>
                 <pre-commit>
-									 exec mvn spotless:check
-								</pre-commit>
+                  exec mvn prettier:check
+                </pre-commit>
               </hooks>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>com.diffplug.spotless</groupId>
-        <artifactId>spotless-maven-plugin</artifactId>
-        <version>2.11.1</version>
-        <configuration>
-          <java>
-            <googleJavaFormat>
-              <version>1.10.0</version>
-              <style>AOSP</style>
-            </googleJavaFormat>
-          </java>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>

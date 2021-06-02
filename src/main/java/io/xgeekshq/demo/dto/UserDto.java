@@ -22,11 +22,15 @@ public class UserDto {
     @Size(min = 2)
     private String lastName;
 
-    @NotBlank @Email private String email;
+    @NotBlank
+    @Email
+    private String email;
 
-    @NotNull private Gender gender;
+    @NotNull
+    private Gender gender;
 
-    @NotNull private LocalDate birthDate;
+    @NotNull
+    private LocalDate birthDate;
 
     public String getEmail() {
         return email;

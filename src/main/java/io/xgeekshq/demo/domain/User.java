@@ -16,15 +16,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull private String firstName;
+    @NotNull
+    private String firstName;
 
-    @NotNull private String lastName;
+    @NotNull
+    private String lastName;
 
-    @NotNull @Email private String email;
+    @NotNull
+    @Email
+    private String email;
 
-    @NotNull private Gender gender;
+    @NotNull
+    private Gender gender;
 
-    @NotNull private LocalDate birthDate;
+    @NotNull
+    private LocalDate birthDate;
 
     public String getEmail() {
         return email;
