@@ -9,16 +9,14 @@
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>io.xgeekshq.demo</groupId>
-  <artifactId>demo</artifactId>
+  <groupId>com.carlosmrduarte</groupId>
+  <artifactId>example</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>demo</name>
-  <description>Demo project for Spring Boot</description>
+  <name>example</name>
+  <description>Example project for Spring Boot</description>
 
   <properties>
     <java.version>11</java.version>
-
-    <mapstruct.version>1.4.2.Final</mapstruct.version>
   </properties>
 
   <dependencies>
@@ -46,13 +44,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.mapstruct</groupId>
-      <artifactId>mapstruct</artifactId>
-      <version>${mapstruct.version}</version>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -145,7 +136,7 @@
         </executions>
       </plugin>
 
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
@@ -170,7 +161,7 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
-      </plugin>
+      </plugin> -->
 
     </plugins>
   </build>
