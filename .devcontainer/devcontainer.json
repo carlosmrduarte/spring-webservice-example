@@ -1,0 +1,54 @@
+{
+  "name": "spring-webservice-example",
+  "build": {
+		"dockerfile": "Dockerfile",
+	},
+  "extensions": [
+    "vscjava.vscode-java-pack",
+    "gabrielbb.vscode-lombok",
+    "editorconfig.editorconfig",
+    "sonarsource.sonarlint-vscode",
+    "pivotal.vscode-spring-boot",
+    "vscjava.vscode-spring-initializr",
+    "redhat.fabric8-analytics",
+    "usernamehw.errorlens"
+  ],
+  "forwardPorts": [
+    8080
+  ],
+  "settings": {
+    "boot-java.validation.spel.on": true,
+    "files.exclude": {
+      "**/.classpath": true,
+      "**/.project": true,
+      "**/.settings": true,
+      "**/.factorypath": true
+    },
+    "java.codeGeneration.generateComments": true,
+    "java.completion.favoriteStaticMembers": [
+      "org.assertj.core.api.Assertions.*",
+      "org.junit.jupiter.api.Assertions.*",
+      "org.hamcrest.Matchers.*",
+      "org.mockito.ArgumentMatchers.*",
+      "org.mockito.Mockito.*",
+      "org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*",
+      "org.springframework.test.web.servlet.result.MockMvcResultMatchers.*"
+    ],
+    "java.completion.filteredTypes": [
+      "lombok.var",
+      "lombok.experimental.var"
+    ],
+    "java.completion.guessMethodArguments": true,
+    "java.completion.maxResults": 0,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.implementationsCodeLens.enabled": true,
+    "java.maven.downloadSources": true,
+    "java.referencesCodeLens.enabled": true,
+    "java.semanticHighlighting.enabled": false,
+    "java.server.launchMode": "Standard",
+    "java.sources.organizeImports.starThreshold": 99,
+    "java.sources.organizeImports.staticStarThreshold": 99,
+    "java.test.report.showAfterExecution": "always",
+    "maven.pomfile.autoUpdateEffectivePOM": true,
+  }
+}
