@@ -25,4 +25,7 @@ jobs:
         run: mvn prettier:check --batch-mode --no-transfer-progress
 
       - name: Tests
-        run: mvn clean test --batch-mode --no-transfer-progress
+        run: |
+          mvn clean test --batch-mode --no-transfer-progress \
+            -Dgithook.plugin.skip \
+            -Dmaven.gitcommitid.skip
