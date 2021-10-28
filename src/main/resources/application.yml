@@ -10,3 +10,6 @@ management:
         include:
           - health
           - info
+  info:
+    git:
+      mode: full

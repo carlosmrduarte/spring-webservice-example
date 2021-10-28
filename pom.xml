@@ -89,8 +89,21 @@
       </plugin>
 
       <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
+        <groupId>io.github.git-commit-id</groupId>
+        <artifactId>git-commit-id-maven-plugin</artifactId>
+        <version>5.0.0</version>
+        <executions>
+          <execution>
+            <id>create-git-properties</id>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+        <configuration>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+        </configuration>
       </plugin>
 
       <!-- java formatter  -->
