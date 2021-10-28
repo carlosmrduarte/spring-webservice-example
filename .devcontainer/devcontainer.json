@@ -4,11 +4,11 @@
 		"dockerfile": "Dockerfile",
 	},
   "extensions": [
-    "vscjava.vscode-java-pack",
     "gabrielbb.vscode-lombok",
+    "vscjava.vscode-java-pack",
+    "pivotal.vscode-boot-dev-pack",
     "editorconfig.editorconfig",
     "sonarsource.sonarlint-vscode",
-    "pivotal.vscode-spring-boot",
     "vscjava.vscode-spring-initializr",
     "redhat.fabric8-analytics",
     "usernamehw.errorlens"

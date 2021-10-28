@@ -27,5 +27,4 @@ jobs:
       - name: Tests
         run: |
           mvn clean test --batch-mode --no-transfer-progress \
-            -Dgithook.plugin.skip \
-            -Dmaven.gitcommitid.skip
+            -Dgithook.plugin.skip
