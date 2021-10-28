@@ -1,4 +1,4 @@
-FROM openjdk:17.0.1-jdk-slim@sha256:bb969beb5697afb742c9d4f4c0ec8e95c5ef4d2793abf6bd271fc4b5133f881d
+FROM maven:3.8.3-openjdk-17-slim@sha256:950889e13c6a50fa7426d67369d3afbc59608981883e22133cd385fc209c831b
 
 RUN apt-get update && \
-    apt-get install maven make -y
+    apt-get install make -y
