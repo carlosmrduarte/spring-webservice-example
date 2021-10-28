@@ -1,7 +1,7 @@
 format-java:
 	mvn prettier:write
 
-compile:
+build:
 	mvn clean package -DskipTests
 
 run:
