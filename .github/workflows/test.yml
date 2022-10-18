@@ -6,7 +6,8 @@ name: Java CI with Maven
 on:
   push:
     paths:
-      - 'src/**'
+      - .github/workflows/test.yml
+      - src/**
 
 jobs:
   build:
